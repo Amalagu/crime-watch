@@ -1,0 +1,57 @@
+.nav--open {
+    display: flex;
+}
+
+.form-div {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    box-shadow: 1px 1px 3px 1px rgb(0, 0, 0, 0.1);
+}
+
+.form-div >label {
+    font-weight: 600;
+}
+
+.form-div>input, .form-div>select {
+    border-bottom: 2px solid #eee;
+    border-bottom-left-radius: 0.2rem;
+    border-bottom-right-radius: 0.2rem;
+    outline: none;
+    padding: 0.2rem 0;
+    font-size: 1.1rem;
+    transition: border 0.3s ease;
+}
+
+.form-div>input:focus {
+    border-bottom: 2px solid rgb(71, 108, 222);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table>thead {
+    background-color: rgb(90, 112, 255);
+    color: white;
+    text-align: left;
+    position: sticky;
+    top: 0;
+}
+
+.table>thead>tr>th {
+    padding: 0.5rem;
+}
+
+.table>tbody>tr:nth-of-type(even) {
+    background-color: #ccc;
+}
+
+.table>tbody>tr>td {
+    padding: 0.6rem 0.5rem
+}
+

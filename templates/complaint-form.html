@@ -1,0 +1,153 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <script defer src="{% static 'scripts/main.js' %}"></script>
+    <title>Complaint</title>
+</head>
+
+<body class="bg-gray-200">
+    <header id="header" class="sticky top-0 p-5 bg-blue-500">
+        <nav class="flex items-center justify-between text-white flex-wrap gap-3">
+            <h1 class="font-semibold text-2xl">Online Crime Reporting System</h1>
+
+            <button id="menu-btn"
+                class="lg:hidden h-8 focus:border border-white rounded p-1 aspect-square overflow-hidden grid place-content-center">
+                <span class="material-symbols-rounded text-4xl">menu</span>
+            </button>
+
+            <ul id="nav-links"
+                class="hidden flex-col gap-4 text-right w-full lg:flex lg:flex-row lg:w-auto lg:items-center lg:gap-4 text-white text-lg font-semibold no-underline">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="#">About</a></li>
+                <!-- <li><a href="{% url 'login' %}">Login</a></li> -->
+            </ul>
+        </nav>
+
+
+    </header>
+    <div id="success-popup" class="hidden bg-green-200 text-green-800 px-4 py-2 rounded-md fixed bottom-5 right-5">
+        {{ message }}
+    </div>
+    <div class="p-5 overflow-y-scroll h-full max-w-[36rem] md:mx-auto">
+        <div class="border-2 rounded p-2">
+            <h1 class="text-center font-bold border-2 p-4 bg-white rounded-md shadow text-blue-500 text-xl">Crime
+                Reporting Form</h1>
+            {% if messages %}
+            {% for message in messages %}
+            <div>{{ message }}</div>
+            {% endfor %}
+            {% endif %}
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-div">
+                    <label for="report-title">Title
+                        <span class="text-red-500">*</span>
+                    </label>
+                    {{ form.title }}
+                    <!-- <input id="report-title" type="text" required> -->
+                </div>
+
+                <div class="form-div">
+                    <label for="category">Category
+                        <span class="text-red-500">*</span>
+                    </label>
+                    {{ form.category }}
+                    <!-- <select name="category" id="category" required>
+                        <option value="" class="text-gray-500">Select category</option>
+                        <option value="TAR">Theft and robbery</option>
+                        <option value="B">Burglary</option>
+                        <option value="PR">Offence against property</option>
+                        <option value="SO">Sexual offence</option>
+                        <option value="MVO">Motor vehicle offence</option>
+                        <option value="FD">Forced disappearance</option>
+                        <option value="P">Piracy</option>
+                        <option value="SS">Sexual slavery</option>
+                        <option value="CL">Child labour</option>
+                        <option value="DRC">Drug related case</option>
+                        <option value="K">Kidnapping</option>
+                        <option value="FI">False Imprisonment</option>
+                        <option value="MC">Murder Case</option>
+                        <option value="O">Other</option>
+                    </select> -->
+                </div>
+
+                <div class="form-div">
+                    <label for="description">Description
+                        <span class="text-red-500">*</span>
+                    </label>
+                    {{ form.description }}
+                    <!-- <textarea name="description" id="description" cols="30" rows="10" required
+                        class="resize-none outline-none border-2 py-1 px-2 rounded focus:border-blue-500"></textarea> -->
+                </div>
+
+                <div class="form-div">
+                    <label for="reporter">Reporter
+                        <span class="text-red-500">*</span>
+                    </label>
+                    {{ form.reporter }}
+                    <!-- <input id="reporter" type="text" required placeholder="Enter your name"> -->
+                </div>
+
+                <div class="form-div">
+                    <label for="incident-date">Date of Incident
+                        <span class="text-red-500">*</span>
+                    </label>
+                    {{ form.incident_date }}
+                    <!-- <input type="date" name="incident-date" id="incident-date" required> -->
+                </div>
+
+                <div class="form-div">
+                    <label for="incident-time">Time of Incident
+                        <span class="text-red-500">*</span>
+                    </label>
+                    {{ form.incident_time }}
+                    <!-- <input type="time" name="incident-time" id="incident-time" required> -->
+                </div>
+
+                <div class="form-div">
+                    <label for="evidence">Evidence</label>
+                    {{ form.photo }}
+                    <!-- <input type="file" name="evidence" id="evidence"> -->
+                </div>
+
+                <div class="mt-5">
+                    <button type="submit"
+                        class="bg-blue-500 p-2 px-3 text-white font-semibold rounded hover:bg-blue-600">Submit</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</body>
+<footer class="bg-blue-500 text-white w-full p-2 text-center">
+    <p class="text-sm">Developed by</p>
+    <p class="font-semibold">Chilaka Kasarachi Jennifer-20/PhD/5879</p>
+</footer>
+<script>
+
+    function showSuccessPopup() {
+        var popup = document.getElementById('success-popup');
+        popup.classList.remove('hidden');
+        setTimeout(function () {
+            popup.classList.add('hidden');
+        }, 3000); // Hide the pop-up after 3 seconds
+    }
+
+
+    window.onload = function () {
+        showSuccessPopup();
+    };
+</script>
+
+
+
+</html>
