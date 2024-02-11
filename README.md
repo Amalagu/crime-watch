@@ -1,2 +1,3 @@
 # crime-watch
-Welcome to Crime Watch, a platform to raise your voice against crime and injustice.  
+Welcome to Crime Watch, your platform to raise your voice against crime and injustice.
+We believe that every citizen deserves to feel safe and secure in their community, and your contribution can make a difference. With Crime Watch, you have the power to report various types of crime as they happen, ranging from theft and vandalism to more serious offenses like assault and fraud. Our platform provides a safe and confidential space for you to share your concerns and experiences, enabling us to work together towards creating safer neighborhoods and holding perpetrators accountable. Join us in building a better and safer society by reporting crime today on Crime Watch.
