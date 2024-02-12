@@ -4,8 +4,11 @@ from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
 from django.contrib.auth import logout
 from django.urls import reverse
+from investigator.decorators import anonymous_required
 
 
+
+@anonymous_required
 def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')

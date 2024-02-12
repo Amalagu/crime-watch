@@ -11,3 +11,18 @@ def investigator_case_required(view_func):
             return HttpResponse('Unauthorized Page')  # Redirect to unauthorized page or any other appropriate page
         return view_func(request, *args, **kwargs)
     return wrapper
+
+
+
+
+
+def anonymous_required(view_func):
+    """
+    Decorator that redirects logged-in users away from the login page.
+    """
+    @wraps(view_func)
+    def wrapper(request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect('dashboard')  # Redirect to the index page or any other appropriate page
+        return view_func(request, *args, **kwargs)
+    return wrapper

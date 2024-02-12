@@ -42,8 +42,10 @@ def report_view(request):
 @login_required
 def view_report_details(request, pk):
     report = Report.objects.get(id=pk)
+    agency = Investigator.objects.get(user=request.user)
     context = {
-        'report': report
+        'report': report,
+        'agency': agency
     }
     return render(request, 'investigator-report-details.html', context)
 
